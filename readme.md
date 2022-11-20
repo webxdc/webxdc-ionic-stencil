@@ -9,6 +9,8 @@
 
 - dedicated webxdc-dev tool does not work in github codespaces, because it relies on multiple ports
 
+- sometimes build gets broken if you run `npm start` and `npm run build` simultaneously. `rm -r www` and do a clean build helps in this case. 
+
 ## run with the simple simulator:
 
 ```bash

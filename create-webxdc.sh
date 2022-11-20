@@ -17,7 +17,7 @@ rm "$PACKAGE_NAME.xdc" 2> /dev/null
 cd www
 zip -9 -r "../$PACKAGE_NAME.xdc" * --exclude \
 LICENSE README.md webxdc.js webxdc.d.ts "*.sh" "*.xdc" \
-manifest.json .gitkeep build/svg/*
+.gitkeep build/svg/* host.config.json
 
 cd ..
 echo "success, archive contents:"
