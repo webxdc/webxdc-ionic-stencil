@@ -11,7 +11,7 @@ export namespace Components {
     interface AppTabs {
     }
     interface PageChat {
-        "name": string;
+        "topic": string;
     }
     interface PageChats {
     }
@@ -63,7 +63,7 @@ declare namespace LocalJSX {
     interface AppTabs {
     }
     interface PageChat {
-        "name"?: string;
+        "topic"?: string;
     }
     interface PageChats {
     }

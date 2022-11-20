@@ -3,20 +3,17 @@ import { createStore } from "@stencil/store";
 type Message = { author: string, text: string }
 
 const { state } = createStore({
-    topics: <string[]>[],
     messages: <{ [key: string]: Message[] }>{}
 });
 
 export async function init() {
     return window.webxdc.setUpdateListener((message) => {
         const {topic, author, text} = message.payload
-        if (!state.topics.includes(topic)) {
-            state.topics = [...state.topics]
+        if (typeof state.messages[topic] === "undefined") {
+            state.messages = {...state.messages, [topic]:[{author, text}]}
+        } else {
+            state.messages = {...state.messages, [topic]:[...state.messages[topic], {author, text}]}
         }
-        if (!Array.isArray(state.messages[topic])) {
-            state.messages[topic] = []
-        }
-        state.messages[topic].push({author, text})
     }, 0)
 }
 

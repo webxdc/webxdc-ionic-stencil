@@ -1,4 +1,6 @@
 import { Component, Fragment, h, Prop } from '@stencil/core';
+import { sendOutline } from 'ionicons/icons';
+import state, { sendMessage } from '../../global/store';
 
 @Component({
   tag: 'page-chat',
@@ -6,7 +8,9 @@ import { Component, Fragment, h, Prop } from '@stencil/core';
   // shadow: true,
 })
 export class PageChat {
-  @Prop() name: string
+  @Prop() topic: string
+
+  textInput!: HTMLIonTextareaElement
 
   normalize(name: string): string {
     name = name || ''
@@ -14,6 +18,7 @@ export class PageChat {
   }
 
   render() {
+    const topic = decodeURIComponent(this.topic)
     return (
       <Fragment>
         <ion-header>
@@ -21,25 +26,39 @@ export class PageChat {
             <ion-buttons slot="start">
               <ion-back-button defaultHref="/tab/notice"></ion-back-button>
             </ion-buttons>
-            <ion-title>chat about {this.name}</ion-title>
+            <ion-title>Chat about {topic}</ion-title>
           </ion-toolbar>
         </ion-header>
         <ion-content fullscreen class="ion-padding">
+          <ion-list lines="none">
+            {(state.messages[topic]||[]).map(({ author, text }) => {
+              return <ion-item><b>{author}: </b>{text}</ion-item>
+            })}
+          </ion-list>
+        </ion-content>
+        <ion-footer>
           <ion-card>
-            <ion-card-header>
-              <h1>
-                {this.normalize(this.name)}
-              </h1>
-            </ion-card-header>
             <ion-card-content>
-              <p>
-                This name is passed in through a route param!
-              </p>
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="11"><ion-textarea ref={(el) => this.textInput = el as HTMLIonTextareaElement} placeholder="Enter message here"></ion-textarea></ion-col>
+                  <ion-col size="auto"><ion-button shape="round" onClick={this.send.bind(this)}>
+                    <ion-icon src={sendOutline}> </ion-icon>
+                  </ion-button></ion-col>
+                </ion-row>
+              </ion-grid>
             </ion-card-content>
           </ion-card>
-        </ion-content>
+        </ion-footer>
       </Fragment>
     );
   }
 
+  send() {
+    const value = this.textInput.value
+    if (value.length > 0) {
+      sendMessage(decodeURIComponent(this.topic), value)
+      this.textInput.value = ''
+    }
+  }
 }

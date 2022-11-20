@@ -18,28 +18,50 @@ export class PageChats {
         </ion-header>
         <ion-content class="ion-padding">
           <ion-list>
-            {state.topics.map(topic=>
-              <ion-item href={"/chat/"+topic} key={topic}>
-                <ion-label>{topic} is following you</ion-label>
+            {Object.keys(state.messages).map(topic =>
+              <ion-item href={"/chat/" + encodeURIComponent(topic)} key={topic}>
+                <ion-label>{topic}</ion-label>
               </ion-item>
             )}
           </ion-list>
         </ion-content>
         <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-          <ion-fab-button onClick={this.onClickAdd}>
+          <ion-fab-button onClick={askForTitle}>
             <ion-icon src={add}></ion-icon>
           </ion-fab-button>
         </ion-fab>
       </Fragment>
     );
   }
+}
 
-  onClickAdd(_:any){
-    const count = state.topics.length + 1
-    // todo add modal to set name
-    // https://ionicframework.com/docs/api/modal
-    const name = `Topic ${count}`
-    sendMessage(name, `I created ${name}`)
-  }
+async function askForTitle() {
+  const alert = document.createElement('ion-alert');
+  alert.header = 'Please enter the name of your topic';
+  alert.buttons = [
+    {
+      text: 'Cancel',
+      role: 'cancel',
+    },
+    {
+      text: 'Create',
+      role: 'confirm',
+      handler: ({["0"]:name})=> {
+        sendMessage(name, `I created ${name}`)
+        alert.dismiss()
+      },
+    },
+  ];
+  alert.inputs = [
+    {
+      placeholder: 'Topic name',
+      attributes: {
+        maxlength: 24
+        , minlength: 3
+      }
+    },
+  ];
 
+  document.body.appendChild(alert);
+  await alert.present();
 }

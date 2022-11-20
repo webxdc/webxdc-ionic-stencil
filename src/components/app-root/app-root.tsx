@@ -19,7 +19,7 @@ export class AppRoot {
               <ion-route component="page-settings"></ion-route>
             </ion-route>
           </ion-route>
-          <ion-route url="/chat/:name" component="page-chat"></ion-route>
+          <ion-route url="/chat/:topic" component="page-chat"></ion-route>
         </ion-router>
         <ion-nav></ion-nav>
       </ion-app>
