@@ -47,8 +47,10 @@ async function askForTitle() {
       text: 'Create',
       role: 'confirm',
       handler: ({["0"]:name})=> {
-        sendMessage(name, `I created ${name}`)
-        alert.dismiss()
+        if (name.length >= 1) {
+          sendMessage(name, `I created ${name}`)
+          alert.dismiss()
+        }
       },
     },
   ];
