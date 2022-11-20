@@ -1,0 +1,6 @@
+
+
+limitations:
+
+- use src attribute instead of name for icons, because using the name would include all icons in the build
+   - (and we manually exlude them from the xdc because of that right now in `./create-webxdc.sh`)
