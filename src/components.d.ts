@@ -10,12 +10,12 @@ export namespace Components {
     }
     interface AppTabs {
     }
-    interface PageHome {
-    }
-    interface PageNotice {
-    }
-    interface PageProfile {
+    interface PageChat {
         "name": string;
+    }
+    interface PageChats {
+    }
+    interface PageSettings {
     }
 }
 declare global {
@@ -31,30 +31,30 @@ declare global {
         prototype: HTMLAppTabsElement;
         new (): HTMLAppTabsElement;
     };
-    interface HTMLPageHomeElement extends Components.PageHome, HTMLStencilElement {
+    interface HTMLPageChatElement extends Components.PageChat, HTMLStencilElement {
     }
-    var HTMLPageHomeElement: {
-        prototype: HTMLPageHomeElement;
-        new (): HTMLPageHomeElement;
+    var HTMLPageChatElement: {
+        prototype: HTMLPageChatElement;
+        new (): HTMLPageChatElement;
     };
-    interface HTMLPageNoticeElement extends Components.PageNotice, HTMLStencilElement {
+    interface HTMLPageChatsElement extends Components.PageChats, HTMLStencilElement {
     }
-    var HTMLPageNoticeElement: {
-        prototype: HTMLPageNoticeElement;
-        new (): HTMLPageNoticeElement;
+    var HTMLPageChatsElement: {
+        prototype: HTMLPageChatsElement;
+        new (): HTMLPageChatsElement;
     };
-    interface HTMLPageProfileElement extends Components.PageProfile, HTMLStencilElement {
+    interface HTMLPageSettingsElement extends Components.PageSettings, HTMLStencilElement {
     }
-    var HTMLPageProfileElement: {
-        prototype: HTMLPageProfileElement;
-        new (): HTMLPageProfileElement;
+    var HTMLPageSettingsElement: {
+        prototype: HTMLPageSettingsElement;
+        new (): HTMLPageSettingsElement;
     };
     interface HTMLElementTagNameMap {
         "app-root": HTMLAppRootElement;
         "app-tabs": HTMLAppTabsElement;
-        "page-home": HTMLPageHomeElement;
-        "page-notice": HTMLPageNoticeElement;
-        "page-profile": HTMLPageProfileElement;
+        "page-chat": HTMLPageChatElement;
+        "page-chats": HTMLPageChatsElement;
+        "page-settings": HTMLPageSettingsElement;
     }
 }
 declare namespace LocalJSX {
@@ -62,19 +62,19 @@ declare namespace LocalJSX {
     }
     interface AppTabs {
     }
-    interface PageHome {
-    }
-    interface PageNotice {
-    }
-    interface PageProfile {
+    interface PageChat {
         "name"?: string;
+    }
+    interface PageChats {
+    }
+    interface PageSettings {
     }
     interface IntrinsicElements {
         "app-root": AppRoot;
         "app-tabs": AppTabs;
-        "page-home": PageHome;
-        "page-notice": PageNotice;
-        "page-profile": PageProfile;
+        "page-chat": PageChat;
+        "page-chats": PageChats;
+        "page-settings": PageSettings;
     }
 }
 export { LocalJSX as JSX };
@@ -83,9 +83,9 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "app-tabs": LocalJSX.AppTabs & JSXBase.HTMLAttributes<HTMLAppTabsElement>;
-            "page-home": LocalJSX.PageHome & JSXBase.HTMLAttributes<HTMLPageHomeElement>;
-            "page-notice": LocalJSX.PageNotice & JSXBase.HTMLAttributes<HTMLPageNoticeElement>;
-            "page-profile": LocalJSX.PageProfile & JSXBase.HTMLAttributes<HTMLPageProfileElement>;
+            "page-chat": LocalJSX.PageChat & JSXBase.HTMLAttributes<HTMLPageChatElement>;
+            "page-chats": LocalJSX.PageChats & JSXBase.HTMLAttributes<HTMLPageChatsElement>;
+            "page-settings": LocalJSX.PageSettings & JSXBase.HTMLAttributes<HTMLPageSettingsElement>;
         }
     }
 }

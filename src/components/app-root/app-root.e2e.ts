@@ -12,6 +12,6 @@ describe('app-root', () => {
     const page = await newE2EPage({ url: '/' });
 
     const element = await page.find('app-root ion-title');
-    expect(element.textContent).toEqual('Home');
+    expect(element.textContent).toEqual('');
   });
 });

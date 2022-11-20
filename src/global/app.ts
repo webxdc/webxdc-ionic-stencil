@@ -1,5 +1,6 @@
 import '@ionic/core';
 import { setupConfig } from '@ionic/core';
+import { init } from './store';
 
 /**
  * The code to be executed should be placed within a default function that is
@@ -15,4 +16,5 @@ export default async () => {
         mode
       });
   }
+  await init()
 };

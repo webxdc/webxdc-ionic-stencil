@@ -1,11 +1,11 @@
 import { Component, Fragment, h, State } from '@stencil/core';
 
 @Component({
-  tag: 'page-home',
-  styleUrl: 'page-home.css',
+  tag: 'page-settings',
+  styleUrl: 'page-settings.css',
   // shadow: true,
 })
-export class PageHome {
+export class PageSettings {
   @State() mode: string
 
   constructor() {
@@ -34,11 +34,11 @@ export class PageHome {
       <Fragment>
         <ion-header>
           <ion-toolbar color="primary">
-            <ion-title>Home</ion-title>
+            <ion-title>Settings</ion-title>
           </ion-toolbar>
         </ion-header>
         <ion-content class="ion-padding">
-          <p>Welcome to Stencil App Starter.</p>
+          <p>Welcome to the Settings</p>
           <ion-list>
             <ion-radio-group value={this.mode} onIonChange={e => this.setMode(e.detail.value)}>
               <ion-list-header>
@@ -60,15 +60,6 @@ export class PageHome {
                 <ion-radio value='ios'></ion-radio>
               </ion-item>
             </ion-radio-group>
-          </ion-list>
-          <p>Let's try navigating with ionic router!</p>
-          <ion-list>
-            <ion-item href="/tab/notice">
-              <ion-label>Notice Page (/tab/notice)</ion-label>
-            </ion-item>
-            <ion-item href="/profile/ionic">
-              <ion-label>Profile Page (/profile/ionic)</ion-label>
-            </ion-item>
           </ion-list>
         </ion-content>
       </Fragment>

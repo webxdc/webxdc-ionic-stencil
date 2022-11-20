@@ -1,11 +1,11 @@
 import { Component, Fragment, h, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'page-profile',
-  styleUrl: 'page-profile.css',
+  tag: 'page-chat',
+  styleUrl: 'page-chat.css',
   // shadow: true,
 })
-export class PageProfile {
+export class PageChat {
   @Prop() name: string
 
   normalize(name: string): string {
@@ -21,7 +21,7 @@ export class PageProfile {
             <ion-buttons slot="start">
               <ion-back-button defaultHref="/tab/notice"></ion-back-button>
             </ion-buttons>
-            <ion-title>Profile: {this.name}</ion-title>
+            <ion-title>chat about {this.name}</ion-title>
           </ion-toolbar>
         </ion-header>
         <ion-content fullscreen class="ion-padding">
