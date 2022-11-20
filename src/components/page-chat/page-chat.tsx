@@ -24,7 +24,7 @@ export class PageChat {
         <ion-header>
           <ion-toolbar color="primary">
             <ion-buttons slot="start">
-              <ion-back-button defaultHref="/tab/notice"></ion-back-button>
+              <ion-back-button defaultHref="#/tab/chats"></ion-back-button>
             </ion-buttons>
             <ion-title>Chat about {topic}</ion-title>
           </ion-toolbar>

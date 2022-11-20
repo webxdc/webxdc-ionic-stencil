@@ -9,7 +9,7 @@ export class AppRoot {
   render() {
     return (
       <ion-app>
-        <ion-router useHash={false}>
+        <ion-router useHash={true}>
           <ion-route-redirect from="/" to="/tab/chats"></ion-route-redirect>
           <ion-route url="/tab" component="app-tabs">
             <ion-route url="/chats" component="tab-chats">

@@ -11,7 +11,7 @@ export const config: Config = {
       type: 'www',
       // no service worker
       serviceWorker: null,
-      // baseUrl: 'https://myapp.local/',
+      baseUrl: 'https://myapp.local/',
       copy: [
         { src: '../manifest.toml', dest: 'manifest.toml' },
         // { src: '../icon.png', dest: 'icon.png' },

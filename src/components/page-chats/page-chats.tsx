@@ -19,7 +19,7 @@ export class PageChats {
         <ion-content class="ion-padding">
           <ion-list>
             {Object.keys(state.messages).map(topic =>
-              <ion-item href={"/chat/" + encodeURIComponent(topic)} key={topic}>
+              <ion-item href={"#/chat/" + encodeURIComponent(topic)} key={topic}>
                 <ion-label>{topic}</ion-label>
               </ion-item>
             )}
