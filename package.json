@@ -1,7 +1,6 @@
 {
   "name": "webxdc-ionic-stencil-starter",
   "private": true,
-  "module": "",
   "version": "0.0.1",
   "description": "Stencil Ionic App Starter",
   "scripts": {
