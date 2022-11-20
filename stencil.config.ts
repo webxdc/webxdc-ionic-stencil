@@ -14,7 +14,7 @@ export const config: Config = {
       baseUrl: 'https://myapp.local/',
       copy: [
         { src: '../manifest.toml', dest: 'manifest.toml' },
-        // { src: '../icon.png', dest: 'icon.png' },
+        { src: '../icon.png', dest: 'icon.png' },
         { src: '../webxdc.js', dest: 'webxdc.js' }
       ],
       empty: true
