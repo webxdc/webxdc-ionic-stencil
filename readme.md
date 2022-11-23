@@ -1,4 +1,4 @@
-# Webxdc starter chat example with Iconic Framework and Stencil
+# Webxdc starter chat example with Ionic Framework and Stencil
 
 <img src="screenshot.png" height="360px"/>
 
