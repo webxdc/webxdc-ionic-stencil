@@ -39,3 +39,6 @@ npm test
 ```
 npm run test.watch
 ```
+
+
+> Hint: If you just want to quickly try it out you could use github codespaces.
